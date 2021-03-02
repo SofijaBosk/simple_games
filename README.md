@@ -9,10 +9,10 @@ Collect game:
  
 
 Whack a Mole:
-    You're supposed to click on the appearing circles before they disappear. If it dissapears without you clicking it you lose points.
-    There are difficulties easy, average and hard(lako, srednje,tesko).
+    You're supposed to click on the appearing circles before they disappear. If it disappears before you click it you lose points.
+    There are three difficulty levels: easy, average and hard(lako, srednje, tesko).
     Movement- using the mouse.
     
 Dodge:
-  Don't get hit by the the randomly comming balls.
+  Don't get hit by the the randomly falling balls.
   Movement- using the arrow keys.
