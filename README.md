@@ -1,5 +1,5 @@
 # simple_games
-Simple games made from scratch for practice using threads and GUI in Java
+Simple games made from scratch for practice using multithreading and GUI in Java
 
 Collect game:
   The goal is to collect all the coins before the enemies labeled X catch you. 
