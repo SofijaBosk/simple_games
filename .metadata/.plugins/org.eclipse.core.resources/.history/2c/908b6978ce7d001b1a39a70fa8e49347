@@ -141,11 +141,3 @@ public class Igra extends Frame{
 	}
 
 }
-
-
-
-/*Sredi da:
-		1.moze da se ponovo pokrene !!!!!
-		2.krug se lepo smanjuje ---------///Sredjeno
-
-*/

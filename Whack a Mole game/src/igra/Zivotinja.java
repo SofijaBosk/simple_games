@@ -12,8 +12,8 @@ public abstract class Zivotinja {
 	
 	public void iscrtajZivotinju(Rupa r) {
 		Graphics g=r.getGraphics();
-		int w=r.getWidth()*r.trenBrKoraka()/r.getBrKoraka(); //sirina getkoraci je ukupan broj koraka
-		int h=r.getHeight()*r.trenBrKoraka()/r.getBrKoraka();//visina
+		int w=r.getWidth()*r.trenBrKoraka()/r.getBrKoraka(); 
+		int h=r.getHeight()*r.trenBrKoraka()/r.getBrKoraka();
 		
 		int x=r.getWidth()/2-w/2;
 		int y=r.getHeight()/2-h/2;

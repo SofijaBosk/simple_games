@@ -169,8 +169,7 @@ public class Igra extends Frame {
 			igranje.setEnabled(false);
 			izmena.setEnabled(true);
 			novac.setEnabled(false);
-			mreza.requestFocusInWindow();//ughhhhh
-			
+			mreza.requestFocusInWindow();	
 			
 		});
 		
@@ -186,15 +185,6 @@ public class Igra extends Frame {
 	
 }
 
-
-
-/*
- * Kad opet pokrenemo igru brisu se figure i dolazi do greske:
- * 			Novcici se poremete -> poeni se ne povecavaju
- * 			Tenk ne moze da napadne igraca
- * 
- * NIJE  SE POKRENULA NIT AAAAAAA
- */
 	
 
 

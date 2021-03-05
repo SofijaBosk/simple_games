@@ -53,7 +53,7 @@ public class Rupa extends Canvas implements Runnable {
 					while(!radi) wait();
 				}
 				Thread.sleep(ms);
-				brKorakaPom++; //Kaze da se iscrtava u postavljenom broju koraka
+				brKorakaPom++;
 				if(trenBrKoraka()==getBrKoraka()) {
 					Thread.sleep(2000);
 					udarenaZivotinja=false;
@@ -81,7 +81,7 @@ public class Rupa extends Canvas implements Runnable {
 		radi=false;
 		if(!udarenaZivotinja && zivotinja!=null) zivotinja.efekatPobegleZivotinje();
 		zivotinja=null;
-		basta.obavestenjeRupaSlobodna(this); //Ovde treba da rupa bude slobodna za novu zivotinju
+		basta.obavestenjeRupaSlobodna(this);
 		repaint();
 	}
 	boolean pokrenutaNit() {

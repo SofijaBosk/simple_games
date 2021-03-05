@@ -8,10 +8,9 @@ public class Igrac extends KruznaFigura {
 	public Igrac(Vektor polozajCentra, int precnik, Vektor brzina, Scena scena) {
 		super(polozajCentra, Color.GREEN, precnik, brzina, scena);
 	}
-//Ne pomera se proticanjem vremena sta god to znacilo
+	
 	@Override
 	public synchronized void promenaPolozaja() {
-		//Ne menja polozaj proticanjem vremena
 		
 		try {
 			Vektor pom;
@@ -41,8 +40,7 @@ public class Igrac extends KruznaFigura {
 	public synchronized void bioSudar() {
 		scena.zaustaviScenu();
 	}
-	
-	//Ako se sudari sa balonom zaustavlja se scena
+
 	
 
 }

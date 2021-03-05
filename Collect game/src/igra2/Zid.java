@@ -8,17 +8,7 @@ public  class Zid extends Polje {
 	
 	public Zid(Mreza mreza) {
 		super(mreza);
-		//repaint();
 		}
-
-/*
-	@Override
-	public void paint(Graphics g) {
-		//super.paint(g);
-		g.setColor(Color.GREEN);
-		g.fillRect(0, 0, getWidth(), getHeight());
-	}
-	*/
 
 	@Override
 	public boolean dozvoljenaFigura() {

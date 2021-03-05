@@ -98,6 +98,3 @@ public class Tenk extends Figura implements Runnable {
 	}
 
 }
-
-
-//Gledaj kad treba da se crta

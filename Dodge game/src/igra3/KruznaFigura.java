@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public abstract class KruznaFigura extends Krug {
 
-	Vektor brzina; //Kako je ovo brzina kretanja??? koliko se daleko iscrtava???
+	Vektor brzina;
 	Scena scena;
 
 	
@@ -26,14 +26,8 @@ public abstract class KruznaFigura extends Krug {
 
 	//Obavestava figuru kad prodje odredjeni vremenski period da treba da se pomeri
 	public abstract void promenaPolozaja() ;
-	//Obavestavamo figuru da se sudarila sa drugom figurom:
 	
+	//Obavestavamo figuru da se sudarila sa drugom figurom:
 	public void bioSudar() {}
-	/*public boolean bioSudar(KruznaFigura f) {
-		return preklapaSe(this,f);
-		//Nesto za obavestenje->vrv da se zaustavi nit
-
-	}
-*/
 
 }

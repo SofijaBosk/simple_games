@@ -16,7 +16,6 @@ public abstract class Krug {
 	}
 	
 	public boolean preklapaSe(Krug k1,Krug k2) {
-		//Vektor sredina=k1.polozajCentra.saberi(k2.polozajCentra).pomnozi(0.5);
 		
 		//Rastojanje izmedju tacaka:
 		double a=Math.pow(k1.polozajCentra.getX()-k2.polozajCentra.getX(),2)+Math.pow(k1.polozajCentra.getY()-k2.polozajCentra.getY(), 2);
@@ -30,9 +29,6 @@ public abstract class Krug {
 			return false;
 		
 	}
-	/*
-	public abstract void crtajKrug(Scena s);
-	*/
 	
 	public void crtajKrug(Scena s) {
 		Graphics g=s.getGraphics();

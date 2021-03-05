@@ -37,8 +37,6 @@ public class Igra extends Frame{
 		
 		dodajOsluskivace();
 		dodajKomponente();
-		//basta.postIntervalCekanja(750); //Popravi
-		//basta.setBrKoraka(8);//Popravi
 		setVisible(true);
 	}
 	

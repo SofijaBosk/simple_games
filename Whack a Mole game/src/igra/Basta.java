@@ -15,7 +15,6 @@ import java.util.Random;
 
 public class Basta extends Panel implements Runnable {
 
-	//private Rupa[][] rupe;
 	List<Rupa> proba=new ArrayList<>();
 	private int povrce=100;
 	
@@ -28,7 +27,6 @@ public class Basta extends Panel implements Runnable {
 	private Rupa r;
 	Thread nit=new Thread(this);
 	
-	//private boolean tacno=true;
 	
 	private Label lpovrce;
 	
@@ -37,43 +35,7 @@ public class Basta extends Panel implements Runnable {
 		this.brVrsta = brVrsta;
 		this.brKolona = brKolona;
 		nit.start();
-		//rupe=new Rupa[brVrsta][brKolona];
 		
-		/*
-		setLayout(new GridLayout(brVrsta,brKolona,20,20));
-		for(int i=0;i<brVrsta*brKolona;i++) {
-			proba.add(new Rupa(this));
-			r=proba.get(i);
-			proba.get(i).setBrKoraka(brKoraka);
-			proba.get(i).addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					r.zgazenaRupa();
-					
-				}
-			});
-			add(proba.get(i));
-		
-		}
-		
-		*/
-		
-		//Moramo za sve posebno da stavimo mouse listener
-		/*for(int i=0;i<brVrsta;i++)
-			for(int j=0;j<brVrsta;j++) {
-					rupe[i][j]=new Rupa(this);
-					r=rupe[i][j];
-					rupe[i][j].addMouseListener(new MouseAdapter(){
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				r.zgazenaRupa();
-				
-			}
-			
-		});
-				
-			}*/
 		}
 
 	public synchronized int getBrKoraka() {
@@ -82,8 +44,6 @@ public class Basta extends Panel implements Runnable {
 	public synchronized void setBrKoraka(int brKoraka) {
 		this.brKoraka = brKoraka;
 		StaviRupe();
-		
-		//repaint(); //Jer ce da utice na sve rupe u basti !=sama se repaintuje rupa
 	}
 	
 	public void StaviRupe() {
@@ -134,10 +94,7 @@ public class Basta extends Panel implements Runnable {
 	}
 	public synchronized void pokreniNit() {
 		
-		//if(tacno) {
-			povrce=100;
-			//tacno=false;
-		//}
+		povrce=100;
 		notify();
 		azurirajLabelu();
 		radi=true;
@@ -175,20 +132,12 @@ public class Basta extends Panel implements Runnable {
 						else break;
 					}
 					proba.get(v).setZivotinja(new Krtica(proba.get(v)));
-					//System.out.println(proba.get(v).getBrKoraka());
-					//System.out.println(povrce);
-					//proba.get(v).getZivotinja().iscrtajZivotinju(proba.get(v));
+	
 				Thread.sleep(ms);
 				
 				proba.get(v).stvoriNit();
-				proba.get(v).pokreniNit();
-				
-				
-				
-				
-				//ms-=1/100*ms;
+				proba.get(v).pokreniNit();				
 				azurirajLabelu();
-				//repaint();
 				
 			}		
 		}catch(InterruptedException e) {}	
@@ -217,16 +166,4 @@ public class Basta extends Panel implements Runnable {
 		return lpovrce;
 	}
 	
-	
-	//Nit nije pokrenuta u basti, mozda zbog toga NIJE JER SE BASTA POKRECE
-	
-	
-	//Greska je u broju koraka. On je nula kad nam se pokrece Basta
-	
-	//Prvo se uradi konstruktor zato su svi brojevi koraka nula
-	
-	
-	
-	
-
 }

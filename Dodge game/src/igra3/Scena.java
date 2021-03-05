@@ -20,7 +20,7 @@ public class Scena extends Canvas implements Runnable {
 	
 	private Igrac igrac;
 	
-	protected List<Balon> listaBalona=new ArrayList<>(); //Ovde ih kupimo da bi ih kasnije crtali	
+	protected List<Balon> listaBalona=new ArrayList<>(); 
 	
 	public Scena(Igra igra) {
 		this.igra = igra;
@@ -48,8 +48,8 @@ public class Scena extends Canvas implements Runnable {
 		
 	}
 	private void stvoriIgraca() {
-		Vektor centar=new Vektor(igra.getWidth()/2,igra.getHeight()*7/8); //igrac pri dnu u sredini
-		igrac=new Igrac(centar,30,new Vektor(0,0),this); //Vektor je nula da se ne pomera osim ako mi ne pomerimo
+		Vektor centar=new Vektor(igra.getWidth()/2,igra.getHeight()*7/8);
+		igrac=new Igrac(centar,30,new Vektor(0,0),this); 
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -131,37 +131,5 @@ public class Scena extends Canvas implements Runnable {
 		
 		
 	}
-	
-	
-	
-	
-/*
-public void paint(Graphics g) {
-		
-		int w=getWidth()/x;
-		int h=getHeight()/y;
-		g.setColor(new Color(220, 220, 220));
-		g.fillRect(0, 0, w*x, h*y);
-		g.setColor(Color.LIGHT_GRAY);
-		for(int i=0;i<=x; i++) {
-			g.drawLine(w*i, 0, w*i, h*y);
-		}
-		for(int i=0;i<=y; i++) {
-			g.drawLine(0, h*i, w*x, h*i);
-		}
-		g.setColor(Color.black);
-		g.drawRect(0, 0, w*x, y*h);
-		if(zmija!=null) zmija.crtaj(this);
-		if(muva!=null) muva.crtaj(this);
-		
-	}
-	
-	private void dodeliBrzinu(){// biraj ugao u itervalu [45,60] ili [-60,-45]
- 		while(Math.abs(Math.tan(dy/dx)) < 1 ||Math.abs(Math.tan(dy/dx)) > 1.74){
- 				dy= -1 + Math.random() * 2;
- }
-	
-	
-	*/
 	
 }
