@@ -1,0 +1,193 @@
+package igra2;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Checkbox;
+import java.awt.CheckboxGroup;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Menu;
+import java.awt.MenuBar;
+import java.awt.MenuItem;
+import java.awt.Panel;
+import java.awt.TextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.border.Border;
+
+import igra2.Mreza.Smer;
+
+public class Igra extends Frame {
+
+	protected Mreza mreza=new Mreza(this);
+	private Button pocni=new Button("Pocni");
+	protected CheckboxGroup podloga=new CheckboxGroup();
+	Checkbox tr=new Checkbox("Trava",true,podloga);
+	Checkbox zi=new Checkbox("Zid",false,podloga);
+	private TextField novac=new TextField("10");
+	protected Label poeni=new Label("Poeni: 0");
+	
+	protected boolean rezim;
+	
+	public Igra() {
+		super("Igra");
+		setSize(800,600);
+		setBackground(Color.WHITE);
+
+		
+		dodajKomponente(); 
+		dodajOsluskivace();
+		dodajMeni();
+		
+		
+		mreza.setFocusable(true); //I dalje nece da se fokusira :(
+		mreza.requestFocusInWindow();
+		
+		
+		setVisible(true);
+	}
+
+	
+	
+	
+
+
+
+	private void dodajKomponente() {
+		Panel dole=new Panel();
+		//dole.setLayout(new BorderLayout.CENTER);
+		Label novc=new Label("Novcica: ");
+		dole.add(novc);
+		dole.add(novac);
+		mreza.setLpoeni(poeni);
+		dole.add(poeni);
+		pocni.addActionListener(e->{
+			mreza.kreni();
+		});
+		
+		dole.add(pocni);
+		pocni.setEnabled(false);
+		Panel glavni=new Panel();
+		Panel glavniPom=new Panel();
+		
+		Label pod=new Label("Podloga: ");
+		
+		glavniPom.setLayout(new GridLayout(1,2));
+		glavniPom.add(pod,BorderLayout.CENTER);
+		
+		
+		
+		Panel pomPom=new Panel();
+		
+	
+		pomPom.setLayout(new GridLayout(2,1));
+		tr.setBackground(Color.GREEN);
+		zi.setBackground(Color.LIGHT_GRAY);
+		pomPom.add(tr,BorderLayout.CENTER);
+		pomPom.add(zi,BorderLayout.CENTER);
+		glavniPom.add(pomPom);
+		
+		glavni.setLayout(new GridLayout(1,2));
+		glavni.add(mreza,BorderLayout.CENTER);
+		glavni.add(glavniPom,BorderLayout.EAST);
+		
+		
+
+		add(mreza,BorderLayout.CENTER);
+		add(glavni,BorderLayout.EAST);
+		add(dole,BorderLayout.SOUTH);
+		
+		
+		
+	}
+
+	private void dodajOsluskivace() {
+		
+		addWindowListener(new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				mreza.zavrsi();mreza.stani(); dispose(); 
+			}
+			
+		});	
+		
+		
+		
+		
+	
+	}
+	
+	
+	private void dodajMeni() {
+		MenuBar bar=new MenuBar();
+		setMenuBar(bar);
+		
+		Menu menu=new Menu("Rezim");
+		bar.add(menu);
+		
+		MenuItem izmena=new MenuItem("Rezim izmene");
+		MenuItem igranje=new MenuItem("Rezim igranja");
+		menu.add(izmena);
+		menu.add(igranje);
+		
+		izmena.addActionListener(e->{
+			rezim=false;
+			mreza.zavrsi();
+			tr.setEnabled(true);
+			zi.setEnabled(true);
+			pocni.setEnabled(false);
+			//mreza.ukloniSaTable();
+			//mreza.getIgrac()
+			//mreza.repaint();
+			igranje.setEnabled(true);
+			izmena.setEnabled(false);
+			novac.setEnabled(true);
+			mreza.ukloniSaTable();
+			
+			
+		});
+		
+		igranje.addActionListener(e->{
+			rezim=true;
+			mreza.setLpoeni(poeni);
+			tr.setEnabled(false);
+			zi.setEnabled(false);
+			mreza.dodajNovcice(Integer.parseInt(novac.getText()));
+			mreza.dodajTenkove(Integer.parseInt(novac.getText())/3);
+			mreza.staviIgraca();
+			mreza.iscrtaj();
+			pocni.setEnabled(true);
+			igranje.setEnabled(false);
+			izmena.setEnabled(true);
+			novac.setEnabled(false);
+			mreza.requestFocusInWindow();//ughhhhh
+			
+			
+		});
+		
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		new Igra();
+	}
+	
+	
+}
+
+	
+
+
+
+
